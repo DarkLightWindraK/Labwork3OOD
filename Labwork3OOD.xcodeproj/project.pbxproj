@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9EF1739029BD0287004034BF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1738F29BD0287004034BF /* main.swift */; };
+		9EF1739729BD04D7004034BF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1739629BD04D7004034BF /* Game.swift */; };
+		9EF1739929BD06C4004034BF /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1739829BD06C4004034BF /* Command.swift */; };
+		9EF1739B29BD08C6004034BF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1739A29BD08C6004034BF /* Player.swift */; };
+		9EF1739D29BD143D004034BF /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1739C29BD143D004034BF /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		9EF1738C29BD0287004034BF /* Labwork3OOD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Labwork3OOD; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF1738F29BD0287004034BF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9EF1739629BD04D7004034BF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		9EF1739829BD06C4004034BF /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		9EF1739A29BD08C6004034BF /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9EF1739C29BD143D004034BF /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				9EF1738F29BD0287004034BF /* main.swift */,
+				9EF1739629BD04D7004034BF /* Game.swift */,
+				9EF1739829BD06C4004034BF /* Command.swift */,
+				9EF1739A29BD08C6004034BF /* Player.swift */,
+				9EF1739C29BD143D004034BF /* GameView.swift */,
 			);
 			path = Labwork3OOD;
 			sourceTree = "<group>";
@@ -120,7 +132,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EF1739B29BD08C6004034BF /* Player.swift in Sources */,
 				9EF1739029BD0287004034BF /* main.swift in Sources */,
+				9EF1739729BD04D7004034BF /* Game.swift in Sources */,
+				9EF1739929BD06C4004034BF /* Command.swift in Sources */,
+				9EF1739D29BD143D004034BF /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
