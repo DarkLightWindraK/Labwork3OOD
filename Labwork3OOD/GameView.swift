@@ -1,7 +1,7 @@
 import Foundation
 
-class GameView {
-    var game: Game
+final class GameView {
+    private(set) var game: Game
     
     init(players: [Player]) {
         self.game = Game(players: players)
@@ -19,5 +19,17 @@ class GameView {
             }
             print()
         }
+    }
+    
+    func getCurrentPlayer() -> String {
+        game.players[gameView.game.currentPlayerIndex].playerType.rawValue
+    }
+    
+    func sendCurrentPlayerAction(command: Command) {
+        game.players[gameView.game.currentPlayerIndex].doStep(action: command)
+    }
+    
+    func undoPreviousAction() {
+        game.players[game.players.count - gameView.game.currentPlayerIndex].undoStep()
     }
 }

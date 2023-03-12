@@ -6,10 +6,11 @@ enum Cell: String {
 }
 
 final class Game {
-    private(set) var gameField: [[Cell]] = Array(repeating: Array(repeating: Cell.Empty, count: 3), count: 3)
-    var currentPlayerIndex: Int
     let players: [Player]
+    var currentPlayerIndex: Int
     var isEnded: Bool
+    
+    private(set) var gameField: [[Cell]] = Array(repeating: Array(repeating: Cell.Empty, count: 3), count: 3)
     
     init(players: [Player]) {
         self.players = players
@@ -27,8 +28,10 @@ final class Game {
         }
         
         gameField[i][j] = Cell(rawValue: players[currentPlayerIndex].playerType.rawValue)!
-        changeCurrentPlayer()
         isEnded = checkIfWon(i: i, j: j)
+        if !isEnded {
+            changeCurrentPlayer()
+        }
     }
     
     func undoStep(i: Int, j: Int) {

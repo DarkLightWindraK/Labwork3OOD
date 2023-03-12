@@ -1,15 +1,11 @@
 import Foundation
 
-enum Operation: String {
-    case step, cancel
-}
-
 protocol Command {
     func execute()
     func undo()
 }
 
-class OneStepCommand: Command {
+final class OneStepCommand: Command {
     let i, j: Int
     let game: Game
     

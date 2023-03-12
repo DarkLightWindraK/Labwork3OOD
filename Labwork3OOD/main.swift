@@ -1,12 +1,16 @@
 import Foundation
 
+enum Operation: String {
+    case step, cancel
+}
+
 let playerX: Player = .init(playerType: .X)
 let playerO: Player = .init(playerType: .O)
 let gameView = GameView(players: [playerX, playerO])
 
 while (!gameView.game.isEnded) {
     gameView.printGameField()
-    print("Ход игрока: \(gameView.game.players[gameView.game.currentPlayerIndex].playerType.rawValue)")
+    print("Ход игрока: \(gameView.getCurrentPlayer())")
     print("Выберите команду: step, чтобы сделать ход, или cancel, для отмены предыдущего хода")
     let action = readLine()
     switch action?.lowercased() {
@@ -17,13 +21,13 @@ while (!gameView.game.isEnded) {
         
         let (i, j) = (data[0], data[1])
         let command = OneStepCommand(i: i, j: j, game: gameView.game)
-        gameView.game.players[gameView.game.currentPlayerIndex].doStep(action: command)
+        gameView.sendCurrentPlayerAction(command: command)
     case Operation.cancel.rawValue:
-        gameView.game.players[1 - gameView.game.currentPlayerIndex].undoStep()
+        gameView.undoPreviousAction()
     default:
         continue
     }
 }
 
-print("Победил: \(gameView.game.players[1 - gameView.game.currentPlayerIndex].playerType.rawValue)")
+print("Победил: \(gameView.getCurrentPlayer())")
 

@@ -4,7 +4,7 @@ enum PlayerType: String {
     case X, O
 }
 
-class Player {
+final class Player {
     let playerType: PlayerType
     
     private var commands: [Command] = []
