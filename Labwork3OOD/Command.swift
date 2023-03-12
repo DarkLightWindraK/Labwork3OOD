@@ -7,7 +7,8 @@ protocol Command {
 
 final class OneStepCommand: Command {
     let i, j: Int
-    let game: Game
+    
+    private weak var game: Game?
     
     init(i: Int, j: Int, game: Game) {
         self.i = i
@@ -16,10 +17,10 @@ final class OneStepCommand: Command {
     }
     
     func execute() {
-        game.makeStep(i: i, j: j)
+        game?.makeStep(i: i, j: j)
     }
     
     func undo() {
-        game.undoStep(i: i, j: j)
+        game?.undoStep(i: i, j: j)
     }
 }

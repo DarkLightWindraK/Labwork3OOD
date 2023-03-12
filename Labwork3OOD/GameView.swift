@@ -1,18 +1,14 @@
 import Foundation
 
 final class GameView {
-    private(set) var game: Game
+    private var game: Game
     
-    init(players: [Player]) {
-        self.game = Game(players: players)
-    }
-    
-    func startNewGame() {
-        game = Game(players: game.players)
+    init(game: Game) {
+        self.game = game
     }
     
     func printGameField() {
-        print("============")
+        print("=============")
         for row in game.gameField {
             for column in row {
                 print(column.rawValue, terminator: " ")
@@ -22,14 +18,18 @@ final class GameView {
     }
     
     func getCurrentPlayer() -> String {
-        game.players[gameView.game.currentPlayerIndex].playerType.rawValue
+        game.players[game.currentPlayerIndex].playerType.rawValue
     }
     
-    func sendCurrentPlayerAction(command: Command) {
-        game.players[gameView.game.currentPlayerIndex].doStep(action: command)
+    func sendCurrentPlayerAction(i: Int, j: Int) {
+        game.players[game.currentPlayerIndex].doStep(action: OneStepCommand(i: i, j: j, game: game))
     }
     
     func undoPreviousAction() {
-        game.players[game.players.count - gameView.game.currentPlayerIndex].undoStep()
+        game.players[1 - game.currentPlayerIndex].undoStep()
+    }
+    
+    func isGameEnded() -> Bool {
+        game.isEnded
     }
 }

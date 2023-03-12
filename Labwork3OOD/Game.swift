@@ -7,9 +7,9 @@ enum Cell: String {
 
 final class Game {
     let players: [Player]
-    var currentPlayerIndex: Int
-    var isEnded: Bool
     
+    private(set) var currentPlayerIndex: Int
+    private(set) var isEnded: Bool
     private(set) var gameField: [[Cell]] = Array(repeating: Array(repeating: Cell.Empty, count: 3), count: 3)
     
     init(players: [Player]) {
@@ -36,8 +36,8 @@ final class Game {
     
     func undoStep(i: Int, j: Int) {
         guard
-            i < 2,
-            j < 2,
+            i < 3,
+            j < 3,
             gameField[i][j] != Cell.Empty
         else {
             return
@@ -52,9 +52,11 @@ private extension Game {
     func changeCurrentPlayer() {
         currentPlayerIndex = (currentPlayerIndex + 1) % 2
     }
+    
     func checkIfWon(i: Int, j: Int) -> Bool {
         checkHorizontal(i: i) || checkVertical(j: j) || checkMainDiagonal() || checkAnotherDiagonal()
     }
+    
     func checkHorizontal(i: Int) -> Bool {
         var counterX = 0, counterO = 0
         for index in 0..<gameField.count {
@@ -69,6 +71,7 @@ private extension Game {
         }
         return counterX == 3 || counterO == 3
     }
+    
     func checkVertical(j: Int) -> Bool {
         var counterX = 0, counterO = 0
         for index in 0..<gameField.count {
@@ -83,6 +86,7 @@ private extension Game {
         }
         return counterX == 3 || counterO == 3
     }
+    
     func checkMainDiagonal() -> Bool {
         var counterX = 0, counterO = 0
         for index in 0..<gameField.count {
@@ -97,6 +101,7 @@ private extension Game {
         }
         return counterX == 3 || counterO == 3
     }
+    
     func checkAnotherDiagonal() -> Bool {
         var counterX = 0, counterO = 0
         for index in 0..<gameField.count {
